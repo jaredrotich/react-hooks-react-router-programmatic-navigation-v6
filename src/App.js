@@ -1,7 +1,7 @@
 // App.js
 import { useState, useEffect } from "react";
 // Add useNavigate to import
-import { Outlet, useNavigate} from "react-router-dom";
+import { Outlet,Navigate, useNavigate} from "react-router-dom";
 import NavBar from "./components/NavBar";
 
 function App() {
@@ -30,8 +30,7 @@ function App() {
 
   return (
     <div className="app">
-      <NavBar logout={logout} />
-        { /*Pass login function to Outlet as context */}
+      {isLoggedIn ? <NavBar logout={logout}  /> : <Navigate to="/login" />}
       <Outlet context={login}/>
     </div>
   );
